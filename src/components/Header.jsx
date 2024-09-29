@@ -58,17 +58,6 @@ export default function Header() {
                 Destination
               </Link>
             </li>
-            <li>
-              <a
-                href="/contact"
-                className="hover:text-blue-400 transition duration-300"
-                onClick={() => {
-                  setIsOpen(false); // Close sidebar when link is clicked
-                }}
-              >
-                Contact
-              </a>
-            </li>
           </ul>
         </nav>
         <div className="hidden md:flex space-x-4">
