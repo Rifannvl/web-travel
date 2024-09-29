@@ -8,7 +8,7 @@ import {
 
 export default function About() {
   return (
-    <div className="grid grid-cols-3  mt-10">
+    <div className="grid grid-cols-1 lg:grid-cols-3  mt-10">
       <div className="p-4 max-w-lg grid grid-cols-1">
         <h2 className="text-2xl font-bold">Experience The New Adventure</h2>
         <p>
