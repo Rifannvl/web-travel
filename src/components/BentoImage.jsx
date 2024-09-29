@@ -89,7 +89,8 @@ export default function BentoImage() {
             />
             <figcaption className="absolute px-4 text-lg text-white bottom-6">
               <h3 className="text-xl items-center justify-center gap-2 flex">
-                Pura Besakih is a waterfall in Bali, Indonesia.
+                Pura Besakih is the largest and holiest temple complex in Bali,
+                Indonesia.
                 <a href="https://id.wikipedia.org/wiki/Bali">
                   <FontAwesomeIcon
                     icon={faArrowRight}
@@ -107,7 +108,7 @@ export default function BentoImage() {
             />
             <figcaption className="absolute px-4 text-lg text-white bottom-6">
               <h3 className="text-xl items-center justify-center gap-2 flex">
-                Banda Neira is a waterfall in Indonesia.
+                Banda Neira is a small island in the Banda Sea, Indonesia.
                 <a href="https://en.wikipedia.org/wiki/Banda_Neira">
                   <FontAwesomeIcon
                     icon={faArrowRight}
