@@ -13,7 +13,7 @@ export default function BentoImage() {
             alt="Raja Ampat"
           />
           <figcaption className="absolute px-4 text-lg text-white bottom-6">
-            <h3 className="text-xl items-center justify-center gap-2 flex">
+            <h3 className="text-xl items-center justify-center gap-2 flex font-bold">
               Raja Ampat is a beautiful island in Indonesia.
               <a href="https://en.wikipedia.org/wiki/Raja_Ampat_Islands">
                 <FontAwesomeIcon
@@ -31,7 +31,7 @@ export default function BentoImage() {
             alt="Mount Bromo"
           />
           <figcaption className="absolute px-4 text-lg text-white bottom-6">
-            <h3 className="text-xl items-center justify-center gap-2 flex">
+            <h3 className="text-xl items-center justify-center gap-2 flex font-bold">
               Mount Bromo is a volcano in Indonesia.
               <a href="https://id.wikipedia.org/wiki/Gunung_Bromo">
                 <FontAwesomeIcon
@@ -49,7 +49,7 @@ export default function BentoImage() {
             alt="Labuan Bajo"
           />
           <figcaption className="absolute px-4 text-lg text-white bottom-6">
-            <h3 className="text-xl items-center justify-center gap-2 flex">
+            <h3 className="text-xl items-center justify-center gap-2 flex font-bold">
               Labuan Bajo is a small fishing town in Indonesia.
               <a href="https://id.wikipedia.org/wiki/Labuan_Bajo,_Komodo,_Manggarai_Barat">
                 <FontAwesomeIcon
@@ -69,7 +69,7 @@ export default function BentoImage() {
             className="w-full  rounded-lg shadow-lg object-cover"
           />
           <figcaption className="absolute px-4 text-lg text-white bottom-6">
-            <h3 className="text-xl items-center justify-center gap-2 flex">
+            <h3 className="text-xl items-center justify-center gap-2 flex font-bold">
               Tugu Yogyakarta is a monument in Indonesia.
               <a href="https://id.wikipedia.org/wiki/Kota_Yogyakarta">
                 <FontAwesomeIcon
@@ -88,7 +88,7 @@ export default function BentoImage() {
               className="w-full h-full  rounded-lg shadow-lg object-cover"
             />
             <figcaption className="absolute px-4 text-lg text-white bottom-6">
-              <h3 className="text-xl items-center justify-center gap-2 flex">
+              <h3 className="text-xl items-center justify-center gap-2 flex font-bold">
                 Pura Besakih is the largest and holiest temple complex in Bali,
                 Indonesia.
                 <a href="https://id.wikipedia.org/wiki/Bali">
@@ -107,7 +107,7 @@ export default function BentoImage() {
               className="w-full h-full  rounded-lg shadow-lg object-cover"
             />
             <figcaption className="absolute px-4 text-lg text-white bottom-6">
-              <h3 className="text-xl items-center justify-center gap-2 flex">
+              <h3 className="text-xl items-center justify-center gap-2 flex font-bold">
                 Banda Neira is a small island in the Banda Sea, Indonesia.
                 <a href="https://en.wikipedia.org/wiki/Banda_Neira">
                   <FontAwesomeIcon
