@@ -6,6 +6,7 @@ import {
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,15 +48,15 @@ export default function Header() {
               </a>
             </li>
             <li>
-              <a
-                href="/about"
+              <Link
+                to="/destination"
                 className="hover:text-blue-400 transition duration-300"
                 onClick={() => {
                   setIsOpen(false); // Close sidebar when link is clicked
                 }}
               >
-                About
-              </a>
+                Destination
+              </Link>
             </li>
             <li>
               <a
