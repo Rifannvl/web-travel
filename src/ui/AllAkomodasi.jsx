@@ -24,7 +24,7 @@ export default function AllAkomodasi() {
   if (loading) return <div className="text-center">Loading...</div>;
 
   return (
-    <div className="p-6">
+    <div className=" bg-gray-100">
       <h1 className="text-3xl font-bold mb-6 text-center">Akomodasi</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {destinations.map((destination) => (
