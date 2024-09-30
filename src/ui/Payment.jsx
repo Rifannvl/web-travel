@@ -105,7 +105,7 @@ export default function Payment({ id }) {
                   </div>
                   <button
                     type="submit"
-                    className="flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 transition-transform duration-300 transform hover:scale-105"
+                    className="bg-primary-600 flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-gray-500 hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 transition-transform duration-300 transform hover:scale-105"
                   >
                     Pay now
                   </button>
