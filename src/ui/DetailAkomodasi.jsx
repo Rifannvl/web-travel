@@ -42,7 +42,7 @@ export default function DetailAkomodasi({ id }) {
   ];
 
   return (
-    <div className="bg-gray-100 mt-6">
+    <div className="container mx-auto bg-gray-100 mt-6">
       <Baselayout>
         <Breadcrumbs items={breadcrumbs} />
         <section className="flex items-center justify-center min-h-screen py-8 bg-gray-100 antialiased">
