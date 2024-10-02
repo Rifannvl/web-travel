@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Destination from "./pages/Destination";
-import DetailAkomodasi from "./ui/DetailAkomodasi";
-import { useParams } from "react-router-dom";
+import Detail from "./pages/Detail";
+
 import Payment from "./ui/Payment";
 
 export default function App() {
@@ -11,19 +11,19 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/destination" element={<Destination />} />
-        <Route path="/destination/:id" element={<DetailWrapper />} />
-        <Route path="/payment/:id" element={<PaymentWrapper />} />
+        <Route path="/destination/:id" element={<Detail />} />
+        <Route path="/payment/:id" element={<Payment />} />
       </Routes>
     </BrowserRouter>
   );
 }
 
-function DetailWrapper() {
-  const { id } = useParams();
-  return <DetailAkomodasi id={id} />;
-}
+// function DetailWrapper() {
+//   const { id } = useParams();
+//   return <DetailAkomodasi id={id} />;
+// }
 
-function PaymentWrapper() {
-  const { id } = useParams();
-  return <Payment id={id} />;
-}
+// function PaymentWrapper() {
+//   const { id } = useParams();
+//   return <Payment id={id} />;
+// }
