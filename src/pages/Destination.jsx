@@ -9,9 +9,9 @@ export default function Akomodasi() {
     { label: "Destinations", path: "/destination" },
   ];
   return (
-    <div className="pt-20 bg-gray-100">
+    <div className=" bg-gray-100">
       <Baselayout>
-        <Breadcrumbs items={breadcrumbItems} className="mb-4" />
+        <Breadcrumbs items={breadcrumbItems} className="pt-[100px]" />
         <AllAkomodasi />
       </Baselayout>
     </div>
