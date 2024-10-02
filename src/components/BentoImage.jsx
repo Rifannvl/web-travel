@@ -44,7 +44,7 @@ export default function BentoImage() {
         </figure>
         <figure className="relative">
           <img
-            className="w-full rounded-lg shadow-lg object-cover"
+            className="w-full h-full rounded-lg shadow-lg object-cover"
             src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQ_6o2tC9D6h3Vg4XZMPZ5Uvc_DEk9sQC9sKhholVBaXIxDCriTuMvGFgiFx-sLbxXrDHHqI1wo3TtEryB-br6QaXW1E_nQB_37EuEZaA" // Replace with your image URL
             alt="Labuan Bajo"
           />

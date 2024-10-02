@@ -8,8 +8,11 @@ export default function AllAkomodasi() {
 
   useEffect(() => {
     const fetchDestinations = async () => {
+      console.log(import.meta.env.VITE_BASE_URL + "/destinations");
       try {
-        const response = await axios.get("http://localhost:3000/destinations");
+        const response = await axios.get(
+          import.meta.env.VITE_BASE_URL + "/destinations"
+        );
         setDestinations(response.data.destinations);
       } catch (error) {
         console.error("Error fetching destinations:", error);
