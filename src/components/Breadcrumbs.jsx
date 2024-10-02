@@ -6,8 +6,8 @@ const Breadcrumbs = ({ items }) => {
   const location = useLocation(); // Get the current location
 
   return (
-    <div className="container mx-auto  rounded-lg shadow-lg border border-gray-200 mb-4">
-      <nav className="p-4">
+    <div className="container mx-auto  rounded-lg shadow-lg border border-gray-200 mt-20">
+      <nav className="p-4 ">
         <ul className="flex space-x-4">
           {items.map((item, index) => {
             // Check if the current path matches the item's path
