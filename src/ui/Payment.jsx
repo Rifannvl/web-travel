@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Baselayout from "../layout/Baselayout";
+import { useParams } from "react-router-dom";
 
-export default function Payment({ id }) {
+export default function Payment() {
   const [destination, setDestination] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchDestination = async () => {
