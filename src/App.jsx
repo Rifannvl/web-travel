@@ -2,17 +2,20 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Destination from "./pages/Destination";
 import Detail from "./pages/Detail";
-
 import Payment from "./ui/Payment";
+import Penginapan from "./pages/Penginapan";
+import ScrollToTop from "./components/ScrollToTop";
 
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/destination" element={<Destination />} />
         <Route path="/destination/:id" element={<Detail />} />
         <Route path="/payment/:id" element={<Payment />} />
+        <Route path="/penginapan" element={<Penginapan />} />
       </Routes>
     </BrowserRouter>
   );
