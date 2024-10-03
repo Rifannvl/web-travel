@@ -9,7 +9,8 @@ export default function AllHotels() {
   useEffect(() => {
     const fetchHotels = async () => {
       try {
-        const response = await fetch("http://localhost:3000/hotel"); // Ganti URL sesuai dengan konfigurasi server Anda
+        const response = await fetch(import.meta.env.VITE_BASE_URL + "/hotel");
+        console.log(response);
         if (!response.ok) {
           throw new Error("Gagal mengambil data hotel");
         }
