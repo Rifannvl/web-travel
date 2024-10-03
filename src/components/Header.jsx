@@ -68,7 +68,7 @@ export default function Header() {
           <ul className="flex flex-col items-center justify-center space-y-6 md:space-y-0 md:flex-row md:space-x-6 md:justify-end md:bg-transparent md:p-0 p-6">
             <li>
               <a
-                href="/"
+                href="/#hero"
                 className="hover:text-blue-400 transition duration-300"
                 onClick={() => {
                   setIsOpen(false); // Close sidebar when link is clicked
@@ -86,6 +86,17 @@ export default function Header() {
                 }}
               >
                 Destination
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/penginapan"
+                className="hover:text-blue-400 transition duration-300"
+                onClick={() => {
+                  setIsOpen(false); // Close sidebar when link is clicked
+                }}
+              >
+                Penginapan
               </Link>
             </li>
           </ul>
