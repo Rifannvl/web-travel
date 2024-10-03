@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios"; // Impor axios
 
 export default function AllHotels() {
   const [hotels, setHotels] = useState([]);
@@ -9,15 +10,12 @@ export default function AllHotels() {
   useEffect(() => {
     const fetchHotels = async () => {
       try {
-        const response = await fetch(import.meta.env.VITE_BASE_URL + "/hotel");
-        console.log(response);
-        if (!response.ok) {
-          throw new Error("Gagal mengambil data hotel");
-        }
-        const data = await response.json();
-        setHotels(data);
+        const response = await axios.get(
+          import.meta.env.VITE_BASE_URL + "/hotel"
+        );
+        setHotels(response.data); // Ambil data dari response
       } catch (err) {
-        setError(err.message);
+        setError(err.message); // Tangkap error
       } finally {
         setLoading(false);
       }
