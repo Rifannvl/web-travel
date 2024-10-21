@@ -8,6 +8,7 @@ export default function Detail() {
   const { id } = useParams();
   const [destination, setDestination] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchDestination = async () => {
@@ -24,6 +25,7 @@ export default function Detail() {
         setDestination(data.destination);
       } catch (error) {
         console.error("Kesalahan saat mengambil data:", error);
+        setError("Destinasi tidak ditemukan.");
       } finally {
         setLoading(false);
       }
@@ -32,9 +34,25 @@ export default function Detail() {
     fetchDestination();
   }, [id]);
 
-  if (loading) return <div className="text-center">Loading...</div>;
-  if (!destination)
-    return <div className="text-center">Destinasi tidak ditemukan.</div>;
+  if (loading) {
+    return (
+      <div className="container mx-auto bg-gradient-to-r from-blue-400 to-purple-500 p-8">
+        <h1 className="text-4xl font-bold mb-6 text-white text-center">
+          Loading...
+        </h1>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="container mx-auto bg-gradient-to-r from-blue-400 to-purple-500 p-8">
+        <h1 className="text-4xl font-bold mb-6 text-white text-center">
+          {error}
+        </h1>
+      </div>
+    );
+  }
 
   // Update breadcrumbs to match the current route
   const breadcrumbs = [
@@ -45,18 +63,17 @@ export default function Detail() {
         destination.name.length > 5
           ? `${destination.name.substring(0, 5)}...`
           : destination.name,
-      path: `/destination${id}`,
+      path: `/destination/${id}`,
     },
   ];
 
-  // Misalnya, untuk mencetak breadcrumbs
-  console.log(breadcrumbs);
-
   return (
-    <div className=" bg-gray-200">
+    <div className="bg-gray-200">
       <Baselayout>
-        <Breadcrumbs items={breadcrumbs} />
-        <DetailAkomodasi destination={destination} />
+        <div className="container mx-auto bg-gradient-to-r from-blue-400 to-purple-500 p-8 rounded-lg">
+          <Breadcrumbs items={breadcrumbs} />
+          <DetailAkomodasi destination={destination} />
+        </div>
       </Baselayout>
     </div>
   );
