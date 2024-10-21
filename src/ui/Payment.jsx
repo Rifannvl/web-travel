@@ -2,10 +2,43 @@ import React, { useEffect, useState } from "react";
 import Baselayout from "../layout/Baselayout";
 import { useParams } from "react-router-dom";
 
+// SkeletonLoader component for loading state
+const SkeletonLoader = () => (
+  <div className="bg-white p-6 rounded-lg shadow-lg animate-pulse">
+    <div className="mb-4 h-8 bg-gray-300 rounded"></div>
+    <div className="mb-6 grid grid-cols-2 gap-4">
+      <div className="col-span-2 sm:col-span-1">
+        <div className="mb-2 h-6 bg-gray-300 rounded"></div>
+        <div className="h-10 bg-gray-300 rounded"></div>
+      </div>
+      <div className="col-span-2 sm:col-span-1">
+        <div className="mb-2 h-6 bg-gray-300 rounded"></div>
+        <div className="h-10 bg-gray-300 rounded"></div>
+      </div>
+      <div>
+        <div className="mb-2 h-6 bg-gray-300 rounded"></div>
+        <div className="h-10 bg-gray-300 rounded"></div>
+      </div>
+      <div>
+        <div className="mb-2 h-6 bg-gray-300 rounded"></div>
+        <div className="h-10 bg-gray-300 rounded"></div>
+      </div>
+    </div>
+    <div className="mt-4 h-12 bg-gradient-to-r from-blue-600 to-indigo-600 rounded"></div>
+    <div className="mt-6 space-y-4 rounded-lg border border-gray-100 bg-gray-50 p-6">
+      <div className="h-6 bg-gray-300 rounded"></div>
+      <div className="h-6 bg-gray-300 rounded"></div>
+      <div className="h-6 bg-gray-300 rounded"></div>
+      <div className="h-6 bg-gray-300 rounded"></div>
+      <div className="h-6 bg-gray-400 rounded"></div>
+    </div>
+  </div>
+);
+
 export default function Payment() {
   const [destination, setDestination] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const [fullName, setFullName] = useState(""); // State for full name input
   const { id } = useParams();
 
   useEffect(() => {
@@ -29,158 +62,61 @@ export default function Payment() {
     fetchDestination();
   }, [id]);
 
-  if (loading) return <div className="text-center">Loading...</div>;
+  if (loading) return <SkeletonLoader />;
   if (!destination)
     return <div className="text-center">Destinasi tidak ditemukan.</div>;
 
+  const handlePayNow = (e) => {
+    e.preventDefault(); // Prevent form submission
+    const whatsappMessage = `Saya ingin memesan ${destination.name}. Harga: $${destination.price}. Nama: ${fullName}`;
+    const whatsappLink = `https://wa.me/?text=${encodeURIComponent(
+      whatsappMessage
+    )}`;
+    window.open(whatsappLink, "_blank"); // Open WhatsApp link
+  };
+
   return (
-    <div className="bg-gray-100">
+    <div className="bg-gradient-to-r from-blue-400 to-purple-500 min-h-screen">
       <Baselayout>
-        <section className=" mt-20 py-8 antialiased md:py-16">
+        <section className="mt-20 py-8 antialiased md:py-16">
           <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
             <div className="mx-auto max-w-5xl shadow-lg rounded-lg p-8 bg-white transition-transform duration-300 transform hover:scale-105">
               <h2 className="text-2xl font-semibold text-gray-900 sm:text-3xl">
                 Payment
               </h2>
               <div className="mt-6 sm:mt-8 lg:flex lg:items-start lg:gap-12">
-                <form className="w-full rounded-lg border border-gray-200 bg-white p-6 shadow-md lg:max-w-xl transition-transform duration-300 transform hover:scale-105">
-                  <div className="mb-6 grid grid-cols-2 gap-4">
-                    <div className="col-span-2 sm:col-span-1">
-                      <label
-                        htmlFor="full_name"
-                        className="mb-2 block text-sm font-medium text-gray-900"
-                      >
-                        Full name (as displayed on card)*
-                      </label>
-                      <input
-                        type="text"
-                        id="full_name"
-                        className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-primary-700 focus:ring focus:ring-primary-200"
-                        placeholder="Bonnie Green"
-                        required
-                      />
-                    </div>
-                    <div className="col-span-2 sm:col-span-1">
-                      <label
-                        htmlFor="card-number-input"
-                        className="mb-2 block text-sm font-medium text-gray-900"
-                      >
-                        Card number*
-                      </label>
-                      <input
-                        type="text"
-                        id="card-number-input"
-                        className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-primary-700 focus:ring focus:ring-primary-200"
-                        placeholder="xxxx-xxxx-xxxx-xxxx"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="card-expiration-input"
-                        className="mb-2 block text-sm font-medium text-gray-900"
-                      >
-                        Card expiration*
-                      </label>
-                      <input
-                        type="text"
-                        id="card-expiration-input"
-                        className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-primary-700 focus:ring focus:ring-primary-200"
-                        placeholder="12/23"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="cvv-input"
-                        className="mb-2 flex items-center gap-1 text-sm font-medium text-gray-900"
-                      >
-                        CVV*
-                      </label>
-                      <input
-                        type="number"
-                        id="cvv-input"
-                        className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 focus:border-primary-700 focus:ring focus:ring-primary-200"
-                        placeholder="•••"
-                        required
-                      />
-                    </div>
+                <form
+                  onSubmit={handlePayNow}
+                  className="w-full rounded-lg border border-gray-200 bg-white p-6 shadow-lg lg:max-w-xl transition-transform duration-300 transform hover:scale-105"
+                >
+                  <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-700">
+                      Full Name
+                    </label>
+                    <input
+                      type="text"
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)} // Update full name state
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
+                      placeholder="Enter your full name"
+                      required
+                    />
                   </div>
                   <button
                     type="submit"
-                    className="bg-gray-600 flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 transition-transform duration-300 transform hover:scale-105"
+                    className="bg-gradient-to-r from-blue-600 to-indigo-600 flex w-full items-center justify-center rounded-lg px-5 py-2.5 text-sm font-medium text-white hover:bg-gradient-to-l focus:outline-none focus:ring-4 focus:ring-blue-300 transition-transform duration-300 transform hover:scale-105"
                   >
                     Pay now
                   </button>
                 </form>
 
                 <div className="mt-6 grow sm:mt-8 lg:mt-0">
-                  <div className="space-y-4 rounded-lg border border-gray-100 bg-gray-50 p-6 shadow-md transition-transform duration-300 transform hover:scale-105">
-                    <div className="space-y-2">
-                      <dl className="flex items-center justify-between gap-4">
-                        <dt className="text-base font-normal text-gray-500">
-                          Original price
-                        </dt>
-                        <dd className="text-base font-medium text-gray-900">
-                          ${destination.price}
-                        </dd>
-                      </dl>
-                      <dl className="flex items-center justify-between gap-4">
-                        <dt className="text-base font-normal text-gray-500">
-                          Savings
-                        </dt>
-                        <dd className="text-base font-medium text-green-500">
-                          -${(destination.price * 0.1).toFixed(2)}
-                        </dd>
-                      </dl>
-                      <dl className="flex items-center justify-between gap-4">
-                        <dt className="text-base font-normal text-gray-500">
-                          Store Pickup
-                        </dt>
-                        <dd className="text-base font-medium text-gray-900">
-                          $99
-                        </dd>
-                      </dl>
-                      <dl className="flex items-center justify-between gap-4">
-                        <dt className="text-base font-normal text-gray-500">
-                          Tax
-                        </dt>
-                        <dd className="text-base font-medium text-gray-900">
-                          $799
-                        </dd>
-                      </dl>
-                    </div>
-                    <dl className="flex items-center justify-between gap-4 border-t border-gray-200 pt-2">
-                      <dt className="text-base font-bold text-gray-900">
-                        Total
-                      </dt>
-                      <dd className="text-base font-bold text-gray-900">
-                        $
-                        {(
-                          destination.price +
-                          99 +
-                          799 -
-                          destination.price * 0.1
-                        ).toFixed(2)}
-                      </dd>
-                    </dl>
-                  </div>
-                  <div className="mt-6 flex items-center justify-center gap-8">
-                    <img
-                      className="h-8 w-auto"
-                      src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/brand-logos/paypal.svg"
-                      alt="Paypal"
-                    />
-                    <img
-                      className="h-8 w-auto"
-                      src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/brand-logos/visa.svg"
-                      alt="Visa"
-                    />
-                    <img
-                      className="h-8 w-auto"
-                      src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/brand-logos/mastercard.svg"
-                      alt="Mastercard"
-                    />
+                  <div className="space-y-4 rounded-lg border border-gray-100 bg-gray-50 p-6 shadow-lg transition-transform duration-300 transform hover:scale-105">
+                    <h3 className="text-lg font-semibold text-gray-900">
+                      {destination.name}
+                    </h3>
+                    <p className="text-gray-700">Price: ${destination.price}</p>
+                    <p className="text-gray-700">{destination.description}</p>
                   </div>
                 </div>
               </div>
