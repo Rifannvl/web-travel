@@ -12,7 +12,7 @@ export default function Penginapan() {
   return (
     <div>
       <Baselayout>
-        <Breadcrumbs items={breadcrumbItems} className=" bg-gray-200" />
+        <Breadcrumbs items={breadcrumbItems} />
         <AllHotels />
       </Baselayout>
     </div>
