@@ -5,6 +5,7 @@ import Detail from "./pages/Detail";
 import Payment from "./ui/Payment";
 import Penginapan from "./pages/Penginapan";
 import ScrollToTop from "./components/ScrollToTop";
+import DetailPenginapan from "./ui/DetailPenginapan";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/destination/:id" element={<Detail />} />
         <Route path="/payment/:id" element={<Payment />} />
         <Route path="/penginapan" element={<Penginapan />} />
+        <Route path="/penginapan/:id" element={<DetailPenginapan />} />
       </Routes>
     </BrowserRouter>
   );
