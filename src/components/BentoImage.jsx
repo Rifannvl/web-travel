@@ -4,7 +4,7 @@ import { faInfoCircle, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 export default function BentoImage() {
   return (
-    <div>
+    <div className="container">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 justify-center p-4">
         <figure className="relative">
           <img
