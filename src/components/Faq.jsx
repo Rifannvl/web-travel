@@ -41,24 +41,26 @@ export default function FAQ() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white border border-gray-300 rounded-lg shadow-lg">
-      <h2 className="text-2xl font-bold text-center text-gray-800 mb-4">
-        Frequently Asked Questions
-      </h2>
-      <div className="space-y-4">
-        {faqs.map((faq, index) => (
-          <div key={index} className="border-b border-gray-300 pb-2">
-            <button
-              className="w-full text-left text-lg font-semibold text-gray-800 focus:outline-none"
-              onClick={() => toggleFAQ(index)}
-            >
-              {faq.question}
-            </button>
-            {openIndex === index && (
-              <p className="mt-2 text-gray-600">{faq.answer}</p>
-            )}
-          </div>
-        ))}
+    <div>
+      <div className="max-w-2xl mx-auto p-6 bg-white border border-gray-300 rounded-lg shadow-lg">
+        <h2 className="text-2xl font-bold text-center text-gray-800 mb-4">
+          Frequently Asked Questions
+        </h2>
+        <div className="space-y-4">
+          {faqs.map((faq, index) => (
+            <div key={index} className="border-b border-gray-300 pb-2">
+              <button
+                className="w-full text-left text-lg font-semibold text-gray-800 focus:outline-none"
+                onClick={() => toggleFAQ(index)}
+              >
+                {faq.question}
+              </button>
+              {openIndex === index && (
+                <p className="mt-2 text-gray-600">{faq.answer}</p>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
